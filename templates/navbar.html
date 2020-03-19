@@ -1,0 +1,80 @@
+
+  <nav class="pl-5 pr-5 navbar navbar-expand-lg bg-white  sticky-top">
+
+    <!-- Navbar brand -->
+    <a class="navbar-brand font-weight-bold" href="{% url 'home' %}" style="color: black;">E~AWARDS</a>
+
+    <a class="nav-link " href="{% url 'home' %}">Home </a> &nbsp;&nbsp;&nbsp;&nbsp;
+  {% if user.is_authenticated %}
+    <form class="form-inline" action="{% url 'search_results' %}">
+        <div class="input-group md-form form-sm mb-4">
+            <input class="form-control my-0 py-0 red-border" type="text" placeholder="Search" aria-label="Search">
+            <div class="input-group-append">
+              <span class="input-group-text dark lighten-3" id="basic-text1"><i class="fas fa-search text-dark"
+                  aria-hidden="true"></i></span>
+            </div>
+          </div>
+      </form>
+      {% endif %}
+
+  <!-- Collapse button -->
+  <button class="navbar-toggler toggler-example" type="button" data-toggle="collapse" data-target="#navbarSupportedContent1"
+    aria-controls="navbarSupportedContent1" aria-expanded="false" aria-label="Toggle navigation"><span class="dark-blue-text"><i
+        class="fas fa-bars fa-1x"></i></span></button>
+  
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent1">
+  
+      <!-- Links -->
+      <ul class="navbar-nav mr-auto">
+        {% if user.is_authenticated %}
+          <li class="text-white nav-item">
+            <a class="nav-link" href="{% url 'new-project' %}">SUBMIT YOUR SITE</a>
+          </li>
+          {% endif %}
+        </ul>
+       
+      <!-- Links -->
+     
+          <div class="col-sm-6 col-lg-6 d-flex justify-content-end">
+              {% if user.is_authenticated %}
+              
+              <ul>
+                <li class="dropdown list-unstyled">
+                    <a  class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-4" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                    <i class="fas fa-user"></i> My Account </a>
+                  <ul class="dropdown-menu dropdown-menu-left dropdown-info" role="menu">
+                    <li>
+                        <a class="dropdown-item" href="{%url 'profile'%}">Profile</a>
+                      </li>
+                    <li>
+                      <a class="dropdown-item" href="/accounts/password/change">Change Password</a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" href="">Settings</a>
+                      </li>
+                    <li>
+                      <a class="dropdown-item" href="/logout"> Logout&nbsp;&nbsp;&nbsp;<i class="fa fa-sign-out-alt"></i></a>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+             
+              {% else %}
+              <li class="list-unstyled">
+                <a class='nav-link' href="/accounts/login"><small style="color:black;">ARE YOU A MEMBER?</small> | <strong>REGISTER / LOGIN</strong></a>
+              </li>
+              
+                <li class="list-unstyled">
+                    <a class="nav-link btn btn-sm align-middle btn-outline-default" href=""> SUBMIT YOUR SITE </a>
+                </li>
+
+
+              {% endif %}
+        </div>
+
+    </div>
+    <!-- Collapsible content -->
+  </nav>
+  <!--/Navbar-->
