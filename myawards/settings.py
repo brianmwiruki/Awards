@@ -88,7 +88,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'myawards.wsgi.application'
+WSGI_APPLICATION = 'Awards.wsgi.application'
 
 
 # Database
