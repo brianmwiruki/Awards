@@ -15,6 +15,7 @@ import django_heroku
 import dj_database_url
 from decouple import config, Csv
 
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -44,7 +45,7 @@ EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
 
 INSTALLED_APPS = [
     'star_ratings',
-    'awards.apps.AwardsConfig',
+    'awards',
     'bootstrap3',
     'tinymce',
     'crispy_forms',
@@ -69,7 +70,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'awards.urls'
+ROOT_URLCONF = 'myawards.urls'
 
 TEMPLATES = [
     {

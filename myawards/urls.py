@@ -21,7 +21,7 @@ from awards.forms import RegisterForm
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'',include('awards.urls')),
+    url(r'', include('awards.urls')),
     url(r'^accounts/register/$', RegistrationView.as_view(form_class=RegisterForm), name='registration_register',),
     url(r'^accounts/', include('registration.backends.simple.urls')),
     url(r'^logout/$', views.logout, {"next_page": '/'}), 
